@@ -1,8 +1,8 @@
 # intel-oneAPI
 
-#### Team Name -
-#### Problem Statement - 
-#### Team Leader Email -
+#### Team Name - Alpha Tribe
+#### Problem Statement - Open Innovation in Education
+#### Team Leader Email - subhajitmajiofficial@gmail.com
 
 ## A Brief of the Prototype:
   This section must include UML Daigrms and prototype description

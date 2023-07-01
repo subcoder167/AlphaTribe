@@ -5,8 +5,8 @@
 #### Team Leader Email - subhajitmajiofficial@gmail.com
 
 ## A Brief of the Prototype:
-  Fractal equations are complex but beautiful to watch and explore when plotted on a 3d graph by creating plotting points through numerous iterations.
-  That's what we explored in this project. We computed and plotted various fractal equations using a series of libraries and Intel® OneAPI Toolkit to optimize the process.
+  When an object or phenomenon repeats its pattern on multiple scales, its called self-similar. This can be seen in many natural phenomenon and is very useful or   humans.Concept of Fractals are one of the core technologies thats used in many industries and research. But students and early proffesionals find it difficult    to explore and study these due to the an=mount of coputational complexity they present.
+  That's what we explored in this project. We used this opportunity to test out the Intel Ai and Analytics toolkit library to help optimize and reduce the          runtime of each equation through numerous iterations. We were successfully able to reduce the run time by upto times in some cases.
   
   You can learn about the project in details from my medium blog - https://medium.com/@subhajitmajiofficial/intel-oneapi-hackathon-submission-40543e01d6b6.
   
@@ -18,6 +18,28 @@
    5. INTEL® OneAPI Toolkit
    
 ## Step-by-Step Code Execution Instructions:
+  We first create a conda environment by running the following code in command prompt,
+  ```
+  conda create -n fractals python==3.9
+  ```
+  We then start the conda environment
+  ```
+  conda activate fractals
+  ```
+
+  Now we need to create a folder to store our files
+  ```
+  mkdir Fractals
+  cd Fractals
+  ```
+
+  We then create a file to write our program
+  ```
+  edit visualization.py
+  ```
+
+  Now lets start working on the program.
+  
   We first imported all the necessary libraries such as numpy for computing the fractal equations,
   ```
   import numpy as np
@@ -215,7 +237,12 @@ if fractal_name in fractals:
         
  fig = plot_fractal_3d(fractals[fractal_name], xmin, xmax, ymin, ymax, resolution)
 st.plotly_chart(fig, use_container_width=True)
-```    
-  
+```
+
+To run the program, we save it and go back to the command prompt and run the following command
+```
+streamlit run visualization.py
+```
+
 ## What I Learned:
    Fractals are never ending intricate patterns that are infinitely complex yet can be generated using simple algorithms. This is what we wanted to explore. We learnt that, although formulated through simple algorithms, the real result comes out when looping the algorithm through numerous iterations. The more the no of iterations, the more beautiful the pattern will be. But that also means using more computational power and thus a lot of time. We explored Intel®'s OneAPI toolkit to help us with this problem. By patching the scikit learn tools with Intel®'s OneAPI, we greatly optimized the visualization process. Currently we only tested upto a 1000 iterations( we included the 100 iterations in the prototype because it pretty much gives us a rough idea of what the final output will look). We aim to test upto 10000 iterations in the final developement phase.

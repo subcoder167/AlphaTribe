@@ -250,10 +250,10 @@ streamlit run visualization.py
 ```
 
 ### Benchmarks
-Intel optimized library gave a hugs boost to the program. We saw a boost of upto more than 5 times in some cases.
+Intel optimized library gave a huge boost to the program. We saw a boost of upto more than 5 times in some cases.
 
-We benchmarked with two versions, one with unoptimized scikit-learn and another with optimized sckkit learn. The system specifications were 8th Gen Intel i5 CPU with 8 GB memory.
-Upon running 1000 iterations, we see very little difference. The unoptimized version took 3 seconds on an average while the optimized version took w secs on an average.
+We benchmarked with two versions, one with unoptimized scikit-learn and another with optimized scikit learn. The system specifications were 8th Gen Intel i5 CPU with 8 GB memory.
+Upon running 1000 iterations, we see very little difference. The unoptimized version took 3 seconds on an average while the optimized version took 2 secs on an average.
 But when we start running large no of iterations, then we see the real improvements in the work load.
 Upon running 10000 iterations, Unoptimized version gave us an average run time of 28 seconds, while optimized version gave us an averag run time of 5 secs. A 400% faster run time.
 

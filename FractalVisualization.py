@@ -1,14 +1,23 @@
 import numpy as np
 import plotly.graph_objs as go
 import streamlit as st
+
+# Comment below two lines when testing for unoptimized
 from sklearnex import patch_sklearn
 from sklearnex.cluster import KMeans
 
+# Uncomment below two lines when testing for unoptimized
+# import sklearn
+# from sklearn.cluster import KMeans
+
 # Patch scikit-learn with Intel optimizations
+# comment below line when testing for unoptimized
 patch_sklearn()
 
+iter = 10000
+
 # Define the fractal functions
-def mandelbrot(c, max_iterations=100):
+def mandelbrot(c, max_iterations=iter):
     z = 0
     n = 0
     while abs(z) <= 2 and n < max_iterations:
@@ -18,8 +27,40 @@ def mandelbrot(c, max_iterations=100):
         return max_iterations
     else:
         return n
+        
+def celtic_mandelbar(c, max_iterations=iter):
+    z = 0
+    n = 0
+    while abs(z) <= 2 and n < max_iterations:
+        z = abs((z.real - z.imag*1j)**2) + c
+        n += 1
+    if n == max_iterations:
+        return max_iterations
+    else:
+        return n
 
-def mandelbrot_cubic(c, max_iterations=100):
+def perp_buffalo(c, max_iterations=iter):
+    z = 0
+    n = 0
+    while abs(z) <= 2 and n < max_iterations:
+        z = abs((abs(z.real) - abs(z.imag)*1j)**2) + c
+        n += 1
+    if n == max_iterations:
+        return max_iterations
+    else:
+        return n
+def mandelbrot_quintic(c, max_iterations=iter):
+    z = 0
+    n = 0
+    while abs(z) <= 2 and n < max_iterations:
+        z = z**5 + c
+        n += 1
+    if n == max_iterations:
+        return max_iterations
+    else:
+        return n
+        
+def mandelbrot_cubic(c, max_iterations=iter):
     z = 0
     n = 0
     while abs(z) <= 2 and n < max_iterations:
@@ -30,7 +71,7 @@ def mandelbrot_cubic(c, max_iterations=100):
     else:
         return n
 
-def mandelbrot_quartic(c, max_iterations=100):
+def mandelbrot_quartic(c, max_iterations=iter):
     z = 0
     n = 0
     while abs(z) <= 2 and n < max_iterations:
@@ -41,7 +82,7 @@ def mandelbrot_quartic(c, max_iterations=100):
     else:
         return n
 
-def burning_ship(c, max_iterations=100):
+def burning_ship(c, max_iterations=iter):
     z = 0
     n = 0
     while abs(z) <= 2 and n < max_iterations:
@@ -52,7 +93,7 @@ def burning_ship(c, max_iterations=100):
     else:
         return n
 
-def julia(c, max_iterations=100):
+def julia(c, max_iterations=iter):
     z = c
     n = 0
     while abs(z) <= 2 and n < max_iterations:
@@ -63,7 +104,7 @@ def julia(c, max_iterations=100):
     else:
         return n
 
-def phoenix(c, max_iterations=100):
+def phoenix(c, max_iterations=iter):
     z = 0
     n = 0
     while abs(z) <= 2 and n < max_iterations:
@@ -74,7 +115,7 @@ def phoenix(c, max_iterations=100):
     else:
         return n
 
-def tricorn(c, max_iterations=100):
+def tricorn(c, max_iterations=iter):
     z = 0
     n = 0
     while abs(z) <= 2 and n < max_iterations:
@@ -131,6 +172,10 @@ fractals = {
     'Julia': julia,
     'Phoenix': phoenix,
     'Tricorn': tricorn,
+    'Celtic Mandelbar': celtic_mandelbar,
+    'Perpendicular Buffalo': perp_buffalo,
+    'Mandelbrot Quintic': mandelbrot_quintic,
+    'Perp Buffalo': perp_buffalo, 
 }
 
 # Create the dropdown input for selecting the fractal
@@ -155,6 +200,8 @@ if fractal_name in fractals:
         st.latex(r'z_{n+1} = z_n^2 + c')
     elif fractal_name == 'Phoenix':
         st.latex(r'z_{n+1} = \sin^2(Re(z_n)) - \sin^2(Im(z_n)) + c')
+    elif fractal_name == 'Perp Celtic':
+        st.latex(r'z=(abs(Re(z)^2-Im(z)^2*Re(z)*Im(z)*1j)+c')
     elif fractal_name == 'Tricorn':
         st.latex(r'z_{n+1} = \bar{z_n}^2 + c')
 

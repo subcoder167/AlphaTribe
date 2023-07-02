@@ -5,7 +5,7 @@
 #### Team Leader Email - subhajitmajiofficial@gmail.com
 
 ## A Brief of the Prototype:
-  When an object or phenomenon repeats its pattern on multiple scales, its called self-similar. This can be seen in many natural phenomenon and is very useful or   humans.Concept of Fractals are one of the core technologies thats used in many industries and research. But students and early proffesionals find it difficult    to explore and study these due to the amount of coputational complexity they present.
+  When an object or phenomenon repeats its pattern on multiple scales, its called self-similar. This can be seen in many natural phenomenon and is very useful or   humans.Concept of Fractals are one of the core technologies thats used in many industries and research. But students and early profesionals find it difficult    to explore and study these due to the amount of computational complexity they present.
   That's what we explored in this project. We used this opportunity to test out the Intel Ai and Analytics toolkit library to help optimize and reduce the          runtime of each equation through numerous iterations. We were successfully able to reduce the run time by upto times in some cases.
   
   You can learn about the project in details from my medium blog - https://medium.com/@subhajitmajiofficial/intel-oneapi-hackathon-submission-40543e01d6b6.

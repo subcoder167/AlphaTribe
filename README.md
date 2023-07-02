@@ -54,12 +54,17 @@
   ```
   import streamlit as st
   ```
-  
-  
+
+  the normal scikit learn to test and benchmark 
+  ```
+  import sklearn
+  ```
+
   and finally scikit-learn extensions to take use of the accelerated computing and optimizations by patching it with Intel® OneAPI toolkit.
   ```
   from sklearnex import patch_sklearn
   from sklearnex.cluster import KMeans
+  patch sklearnex()
   ```
   
   Next we define the fractal equations one by one..we covered a few of them in this prototype...we hope to explore as many of them as we can in the final developement phase.
@@ -244,5 +249,15 @@ To run the program, we save it and go back to the command prompt and run the fol
 streamlit run visualization.py
 ```
 
+### Benchmarks
+Intel optimized library gave a hugs boost to the program. We saw a boost of upto more than 5 times in some cases.
+
+We benchmarked with two versions, one with unoptimized scikit-learn and another with optimized sckkit learn. The system specifications were 8th Gen Intel i5 CPU with 8 GB memory.
+Upon running 1000 iterations, we see very little difference. The unoptimized version took 3 seconds on an average while the optimized version took w secs on an average.
+But when we start running large no of iterations, then we see the real improvements in the work load.
+Upon running 10000 iterations, Unoptimized version gave us an average run time of 28 seconds, while optimized version gave us an averag run time of 5 secs. A 400% faster run time.
+
+Upon running 100000 iterations, unoptimized version gave us an average run time of 9 mins, while optimized version finished it in 2 mins. once again around 300% faster run times.
+
 ## What I Learned:
-   Fractals are never ending intricate patterns that are infinitely complex yet can be generated using simple algorithms. This is what we wanted to explore. We learnt that, although formulated through simple algorithms, the real result comes out when looping the algorithm through numerous iterations. The more the no of iterations, the more beautiful the pattern will be. But that also means using more computational power and thus a lot of time. We explored Intel®'s OneAPI toolkit to help us with this problem. By patching the scikit learn tools with Intel®'s OneAPI, we greatly optimized the visualization process. Currently we only tested upto a 1000 iterations( we included the 100 iterations in the prototype because it pretty much gives us a rough idea of what the final output will look). We aim to test upto 10000 iterations in the final developement phase.
+Fractals are never ending patterns which can be used in numerous applications. The high dynamic compute requirements to calculate a given fractals was what used to be a challenge for us...but now, with the use of Intel optimizations, these patterns can be visualized and studied easily even on a not so powerful machine.
